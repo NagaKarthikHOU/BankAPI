@@ -7,11 +7,9 @@ namespace BankAPI.Middleware
     public class AuthenticationMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly string _relm;
-        public AuthenticationMiddleware(RequestDelegate next,string relm) 
+        public AuthenticationMiddleware(RequestDelegate next) 
         {
              _next = next;
-            _relm = relm;
         }
 
         public async Task InvokeAsync(HttpContext context)
@@ -30,7 +28,7 @@ namespace BankAPI.Middleware
             var uid = uidpwd[0];
             var password = uidpwd[1];
 
-            if (uid != "john" || password != "password")
+            if (uid != "karthik" || password != "karthik123")
             {
                 context.Response.StatusCode = 401;
                 await context.Response.WriteAsync("Unauthorized");

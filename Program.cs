@@ -31,11 +31,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<AuthenticationMiddleware>("Test");
+app.UseMiddleware<AuthenticationMiddleware>();
 
 app.UseHttpsRedirection();
-
-//app.UseAuthorization();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
